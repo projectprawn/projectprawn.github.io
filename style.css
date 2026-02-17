@@ -1,0 +1,61 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* container to control overall page padding */
+body {
+    padding: 2rem; /* space from viewport edges */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* horizontal centering */
+    text-align: center;  /* default text alignment */
+}
+
+/* breadcrumbs / header */
+header {
+    width: 100%;        /* take full width so padding works */
+    max-width: 60rem;   /* optional, to prevent super-wide content */
+    text-align: left;   /* breadcrumbs left-aligned */
+    margin-bottom: 2rem; 
+}
+
+/* main content */
+main {
+    width: 100%;
+    max-width: 40rem;   /* keeps content from stretching too wide */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* horizontal centering */
+    gap: 1rem;           /* vertical spacing between items */
+}
+
+/* your custom element */
+prawn {
+    display: block;
+    letter-spacing: -2.5px;
+    margin-bottom: 0.5rem;
+}
+
+.audio-player {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;       /* full width of parent container */
+    max-width: 40rem;  /* optional, keep same as main */
+}
+.audio-player input[type="range"] {
+    flex: 1;           /* fill remaining space */
+}
+
+
+/* general styling */
+ul { text-align: left; }
+h1 { letter-spacing: -2.5px; }
+a { color: inherit; display: inline; }
+hr { width: 60%; margin: 1rem auto; }
+p { max-width: 40rem; margin-top: 0.5rem; color: #444; }
