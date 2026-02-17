@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Project Prawn's December 2022 Tape</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <nav class="breadcrumbs">
+            <a href="/">Home</a> &gt; <a href="/mixes">Mixes</a> &gt; Project Prawn's December 2022 Tape
+        </nav>
+        <h1>
+            Project Prawn's December 2022 Tape
+        </h1>
+
+        <date>
+            2022-12-03
+        </date>
+        <hr>
+        <div style="display: flex; align-items: center; gap: 12px;">
+        <button onclick="togglePlay(this)">▶</button>
+        <span id="time">0:00</span>
+        <input type="range" id="seek" value="0" style="flex: 1;">
+        <audio id="player" src="https://d1hew2xr4qgi1l.cloudfront.net/2022/December+Tape.mp3"
+                ontimeupdate="updateTime()" onloadedmetadata="initSeek()">
+        </audio>
+        </div>
+
+        <script>
+        const player = document.getElementById('player');
+        const seek = document.getElementById('seek');
+
+        function togglePlay(btn) {
+            if (player.paused) { player.play(); btn.textContent = '⏸'; }
+            else { player.pause(); btn.textContent = '▶'; }
+        }
+
+        function updateTime() {
+            const m = Math.floor(player.currentTime / 60);
+            const s = String(Math.floor(player.currentTime % 60)).padStart(2, '0');
+            document.getElementById('time').textContent = `${m}:${s}`;
+            seek.value = (player.currentTime / player.duration) * 100;
+        }
+
+        function initSeek() {
+            seek.oninput = () => player.currentTime = (seek.value / 100) * player.duration;
+        }
+        </script>
+        <p>
+            One of my favourite mixes I've ever made. A journey through my favourite tracks and finds
+            up to that point. Funnily enough I was due to get on a flight the same evening. Literally
+            took my bags and left for the airport right after finishing this mix and initially
+            uploading to Soundcloud.
+        </p>
+        <p>
+            Also, lol at the mistake at 18:27 where I accidentally put my hand on the jog wheel for half a second.
+        </p>
+        <h3>
+            Tracklist
+        </h3>
+        <ul>
+            <li>yvga - Peaceful Death (Project Prawn Edit)</li>
+            <li>Skrillex - Kliptown Empyrean</li>
+            <li>jordnmoody - puddlesflip</li>
+            <li>Snuffy - Tamarack</li>
+            <li>SSOS - Whoopty</li>
+            <li>Fred again.. - Jungle (msft remix)</li>
+            <li>RL Grime & ISOxo - Stinger (RTROGRDE Remix)</li>
+            <li>capshun - Quintessence (w/ Floret Loret)</li>
+            <li>Illenium - It's All on U (T-Mass & LZRD Remix)</li>
+            <li>Mr. Carmack - nell</li>
+            <li>100 Gecs - Torture Me (feat. Skrillex)</li>
+            <li>Thew - Brick</li>
+            <li>blake skowron - 10pound</li>
+        </ul>
+
+        <hr>
+        <a href="https://instagram.com/projectprawn">Instagram</a> | <a href="https://soundcloud.com/projectprawn">SoundCloud</a>
+        <br>
+        <p>
+            Contact: projectprawnmusic at gmail dot com
+        </p>
+    </body>

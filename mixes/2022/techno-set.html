@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Techno Set</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <nav class="breadcrumbs">
+            <a href="/">Home</a> &gt; <a href="/mixes">Mixes</a> &gt; Techno Set
+        </nav>
+        <h1>
+            Techno Set
+        </h1>
+
+        <date>
+            2022-09-24
+        </date>
+
+        <hr>
+
+        <div style="display: flex; align-items: center; gap: 12px;">
+        <button onclick="togglePlay(this)">▶</button>
+        <span id="time">0:00</span>
+        <input type="range" id="seek" value="0" style="flex: 1;">
+        <audio id="player" src="https://d1hew2xr4qgi1l.cloudfront.net/2022/01+TECHNO+SET+24092022.mp3"
+                ontimeupdate="updateTime()" onloadedmetadata="initSeek()">
+        </audio>
+        </div>
+
+        <script>
+        const player = document.getElementById('player');
+        const seek = document.getElementById('seek');
+
+        function togglePlay(btn) {
+            if (player.paused) { player.play(); btn.textContent = '⏸'; }
+            else { player.pause(); btn.textContent = '▶'; }
+        }
+
+        function updateTime() {
+            const m = Math.floor(player.currentTime / 60);
+            const s = String(Math.floor(player.currentTime % 60)).padStart(2, '0');
+            document.getElementById('time').textContent = `${m}:${s}`;
+            seek.value = (player.currentTime / player.duration) * 100;
+        }
+
+        function initSeek() {
+            seek.oninput = () => player.currentTime = (seek.value / 100) * player.duration;
+        }
+        </script>
+        <p>
+            One of the first ever sets I recorded.
+        </p>
+        <h3>
+            Tracklist
+        </h3>
+        <ul>
+            <li>Ctrls - Charge (Rrose Remix)</li>
+            <li>Matt Lange - Basimilus 3</li>
+            <li>Tony Rohr & Layton Giordani - Careless Suggestions</li>
+            <li>Dale Howard - Frequency</li>
+            <li>BlackGummy - Iconoclast</li>
+            <li>Eli Brown - Fading to Black</li>
+            <li>Arjun Vagale - Age of Lust</li>
+            <li>No Mana - Laser Beam</li>
+            <li>Space 92 - 2049</li>
+            <li>TWR72 - Mouth + deadmau5 - Sometimes Things Get, Whatever</li>
+        </ul>
+        <hr>
+        <a href="https://instagram.com/projectprawn">Instagram</a> | <a href="https://soundcloud.com/projectprawn">SoundCloud</a>
+        <br>
+        <p>
+            Contact: projectprawnmusic at gmail dot com
+        </p>
+    </body>
