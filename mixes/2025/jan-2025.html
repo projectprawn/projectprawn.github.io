@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>January 2025 Mixtape</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/style.css">
+    </head>
+    <body>
+        <nav class="breadcrumbs">
+            <a href="/">Home</a> &gt; <a href="/mixes">Mixes</a> &gt; January 2025 Mixtape
+        </nav>
+        <h1>
+            January 2025 Mixtape
+        </h1>
+
+        <date>
+            2025-01-11
+        </date>
+        <hr>
+        <div class="audio-player">
+        <button onclick="togglePlay(this)">▶</button>
+        <span id="time">0:00</span>
+        <input type="range" id="seek" value="0" style="flex: 1;">
+        <audio id="player" src="https://d1hew2xr4qgi1l.cloudfront.net/2025/01+Jan25+Tape.mp3"
+                ontimeupdate="updateTime()" onloadedmetadata="initSeek()">
+        </audio>
+        </div>
+
+        <script>
+        const player = document.getElementById('player');
+        const seek = document.getElementById('seek');
+
+        function togglePlay(btn) {
+            if (player.paused) { player.play(); btn.textContent = '⏸'; }
+            else { player.pause(); btn.textContent = '▶'; }
+        }
+
+        function updateTime() {
+            const m = Math.floor(player.currentTime / 60);
+            const s = String(Math.floor(player.currentTime % 60)).padStart(2, '0');
+            document.getElementById('time').textContent = `${m}:${s}`;
+            seek.value = (player.currentTime / player.duration) * 100;
+        }
+
+        function initSeek() {
+            seek.oninput = () => player.currentTime = (seek.value / 100) * player.duration;
+        }
+        </script>
+        <p>
+            A very trappy and bass-heavy mix. This mixtape was recorded as an audition for
+            a slot for SMU Stereometa's involvement at Gravical 2025, and I wanted to go for something
+            a bit heavier and more energetic than my previous mixes.
+        </p>
+        <p>
+            I did get to play, but my slot turned out to be during a break where nobody was climbing. So I ended
+            up playing something a bit more tame that day.
+        </p>
+        <h3>
+            Tracklist
+        </h3>
+        <ul>
+            <li>Squired - RTC</li>
+            <li>Skrillex, Joker & Sleepnet - Tears</li>
+            <li>Ice Spice - Princess Diana (Jukaa Bootleg)</li>
+            <li>Kollaba x Reach - WOW!</li>
+            <li>Yash Bansal - Hell With Love</li>
+            <li>A.G. Cook - Beautiful (Rustie Edit)</li>
+            <li>KRANE - Bloom</li>
+            <li>Silcrow - TAKE ME DOWN</li>
+            <li>pluko & Reo Cragun - OK YES</li>
+            <li>Fred again.. - Jungle (msft Remix)</li>
+            <li>Jupe - LOKO</li>
+            <li>Mr Carmack - Drugs</li>
+            <li>ISOxo - PRESSURE</li>
+            <li>msft & VARI - crash test</li>
+        </ul>
+
+        <hr>
+        <div class="social">
+            <a href="https://instagram.com/projectprawn">Instagram</a> | <a href="https://soundcloud.com/projectprawn">SoundCloud</a>
+        </div>
+        <br>
+        <p>
+            Contact: projectprawnmusic at gmail dot com
+        </p>
+    </body>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>January 2024 Mixtape</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/style.css">
+    </head>
+    <body>
+        <nav class="breadcrumbs">
+            <a href="/">Home</a> &gt; <a href="/mixes">Mixes</a> &gt; January 2024 Mixtape
+        </nav>
+        <h1>
+            January 2024 Mixtape
+        </h1>
+
+        <date>
+            2024-01-29
+        </date>
+        <hr>
+        <div class="audio-player">
+        <button onclick="togglePlay(this)">▶</button>
+        <span id="time">0:00</span>
+        <input type="range" id="seek" value="0" style="flex: 1;">
+        <audio id="player" src="https://d1hew2xr4qgi1l.cloudfront.net/2024/jan-2024-tape.mp3"
+                ontimeupdate="updateTime()" onloadedmetadata="initSeek()">
+        </audio>
+        </div>
+
+        <script>
+        const player = document.getElementById('player');
+        const seek = document.getElementById('seek');
+
+        function togglePlay(btn) {
+            if (player.paused) { player.play(); btn.textContent = '⏸'; }
+            else { player.pause(); btn.textContent = '▶'; }
+        }
+
+        function updateTime() {
+            const m = Math.floor(player.currentTime / 60);
+            const s = String(Math.floor(player.currentTime % 60)).padStart(2, '0');
+            document.getElementById('time').textContent = `${m}:${s}`;
+            seek.value = (player.currentTime / player.duration) * 100;
+        }
+
+        function initSeek() {
+            seek.oninput = () => player.currentTime = (seek.value / 100) * player.duration;
+        }
+        </script>
+        <p>
+            Another mix that is more "live" and unpolished, inclusive of backspin.
+        </p>
+        <h3>
+            Tracklist
+        </h3>
+        <ul>
+            <li>Logic1000 - Grown On Me</li>
+            <li>NuBass & Legacy - Like This</li>
+            <li>Ahadadream - Piano Skank</li>
+            <li>Chris Lake - In The Yuma (Four Tet Remix)</li>
+            <li>Oklou - god's chariots (fsaud.io edit)</li>
+            <li>i_o & Lights - idk</li>
+            <li>Hayden James & Cassian - On Your Own (feat. Elderbrook)</li>
+        </ul>
+
+        <hr>
+        <div class="social">
+            <a href="https://instagram.com/projectprawn">Instagram</a> | <a href="https://soundcloud.com/projectprawn">SoundCloud</a>
+        </div>
+        <br>
+        <p>
+            Contact: projectprawnmusic at gmail dot com
+        </p>
+    </body>
