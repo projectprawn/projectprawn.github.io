@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>About</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/style.css">
+    </head>
+    <body>
+        <nav class="breadcrumbs">
+            <a href="/">Home</a> &gt; About
+        </nav>
+        <h1>
+            About
+        </h1>
+
+        <p>
+            <strong>Project Prawn</strong> started out as a general-purpose creative project in 2020
+            that included photography. It has since come to focus on music since 2022,
+            and this name was chosen because my surname sounds like
+            the Chinese word for "prawn".
+        </p>
+        <p>
+           I mix electronic music that covers a diverse range of genres, but I have a
+           particular fondness for melodic house and techno. 
+        </p>
+        <p>
+            While I haven't had much experience in the club scene due to my niche preferences
+            and chilled-out style, I've been fortunate to have had the opportunity to play
+            at Cherry in 2023, as well as offering my services at Singapore Repertory Theatre
+            and Gravical 2025.
+        </p>
+        <p>
+            Since then, I've opted to mix at home and for friends.
+        </p>
+        <p id="email"></p>
+
+        <script>
+        const user = "projectprawnmusic";
+        const domain = "gmail.com";
+        document.getElementById("email").innerHTML =
+            `Want to get in touch? Contact me via email <strong><a href="mailto:${user}@${domain}">here</a></strong>.`;
+        </script>
+        <hr>
+        <div class="social">
+            <a href="https://instagram.com/projectprawn">Instagram</a> | <a href="https://soundcloud.com/projectprawn">SoundCloud</a>
+        </div>
+    </body>
