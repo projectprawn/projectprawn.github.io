@@ -72,3 +72,11 @@ p { max-width: 40rem; margin-top: 0.5rem; color: #444; }
     display: flex;
     gap: 1rem;
 }
+
+/* fit img to width of container */
+img {
+    width: 40%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
